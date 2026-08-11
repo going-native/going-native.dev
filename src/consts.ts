@@ -2,4 +2,4 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'Going Native';
-export const SITE_DESCRIPTION = 'Native desktop applications built with Rust and GPUI.';
+export const SITE_DESCRIPTION = 'Native desktop apps built with Rust and GPUI.';
