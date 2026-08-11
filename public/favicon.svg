@@ -14,9 +14,6 @@
   <path d="M7 20v2"/>
   <path d="M7 2v2"/>
   <style>
-    rect, path { stroke: #000; }
-    @media (prefers-color-scheme: dark) {
-      rect, path { stroke: #FFF; }
-    }
+    rect, path { stroke: #CE412B; }
   </style>
 </svg>
