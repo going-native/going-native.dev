@@ -5,24 +5,23 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	color-scheme: dark;
+	--accent: #4d9fff;
+	--accent-dark: #3d8bf0;
+	--black: 235, 234, 228;
+	--gray: 140, 143, 150;
+	--gray-light: 42, 44, 51;
+	--gray-dark: 214, 213, 206;
 	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+		0 2px 6px rgba(0, 0, 0, 50%), 0 8px 24px rgba(0, 0, 0, 50%),
+		0 16px 32px rgba(0, 0, 0, 50%);
 }
 body {
 	font-family: var(--font-atkinson);
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background-color: #121215;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
@@ -31,9 +30,11 @@ body {
 }
 main {
 	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
+	max-width: calc(100% - 4em);
+	margin: 1.5em auto;
+	padding: 3em 2em;
+	background-color: #1a1b20;
+	border-radius: 12px;
 }
 h1,
 h2,
@@ -69,6 +70,9 @@ a {
 }
 a:hover {
 	color: var(--accent);
+}
+::selection {
+	background: rgba(77, 159, 255, 0.3);
 }
 p {
 	margin-bottom: 1em;

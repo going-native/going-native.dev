@@ -14,6 +14,6 @@
   <path d="M7 20v2"/>
   <path d="M7 2v2"/>
   <style>
-    rect, path { stroke: #CE412B; }
+    rect, path { stroke: #4d9fff; }
   </style>
 </svg>
