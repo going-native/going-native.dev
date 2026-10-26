@@ -1,0 +1,227 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Manifesto — Going Native" description="The Going Native manifesto. Sign it with your Atproto account." />
+		<style>
+			main {
+				max-width: 720px;
+			}
+			.lede {
+				color: rgb(var(--gray));
+				max-width: 34em;
+			}
+			blockquote {
+				margin: 1.5em 0;
+			}
+			blockquote p {
+				margin: 0 0 0.75em;
+			}
+			ul.values {
+				list-style: none;
+				padding: 0;
+				margin: 1em 0;
+			}
+			ul.values li {
+				margin: 0.35em 0;
+				padding-left: 1.5em;
+				position: relative;
+			}
+			ul.values li::before {
+				content: '·';
+				position: absolute;
+				left: 0.35em;
+				color: var(--accent);
+			}
+			ul.values li strong {
+				color: rgb(var(--black));
+			}
+			.closing {
+				margin-top: 1.25em;
+			}
+			hr {
+				margin: 2.5em 0;
+			}
+			.widget {
+				margin-bottom: 1em;
+			}
+			.widget form {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				align-items: center;
+				margin: 1em 0;
+			}
+			.widget input[type='text'] {
+				flex: 1 1 16em;
+				padding: 0.55em 0.75em;
+				border-radius: 6px;
+				border: 1px solid rgb(var(--gray-light));
+				background: #121215;
+				color: rgb(var(--gray-dark));
+				font-size: 1em;
+			}
+			.widget label {
+				display: block;
+				margin-bottom: 0.25em;
+				color: rgb(var(--gray));
+				font-size: 0.9em;
+			}
+			.widget .button {
+				display: inline-block;
+				background: var(--accent);
+				color: #fff;
+				border: none;
+				padding: 0.6em 1.4em;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 1em;
+				cursor: pointer;
+			}
+			.widget .button:hover {
+				background: var(--accent-dark);
+			}
+			.widget .button:disabled {
+				opacity: 0.6;
+				cursor: default;
+			}
+			.muted {
+				color: rgb(var(--gray));
+			}
+			.error {
+				color: #ff6b6b;
+			}
+			.success {
+				color: #4ad9a6;
+			}
+			.signer-list {
+				list-style: none;
+				padding: 0;
+				margin: 0.5em 0;
+			}
+			.signer {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				gap: 1em;
+				padding: 0.6em 0;
+				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			.signer:last-child {
+				border-bottom: none;
+			}
+			.signer.withdrawn {
+				opacity: 0.45;
+			}
+			.signer-main {
+				display: flex;
+				flex-direction: column;
+			}
+			.signer-name {
+				font-weight: 700;
+				color: rgb(var(--black));
+			}
+			.signer-handle a {
+				color: rgb(var(--gray));
+				text-decoration: none;
+			}
+			.signer-handle a:hover {
+				color: var(--accent);
+			}
+			.signer-meta {
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+				flex-shrink: 0;
+			}
+			.signer-date {
+				color: rgb(var(--gray));
+				font-size: 0.85em;
+			}
+			.badge {
+				font-size: 0.7em;
+				padding: 0.15em 0.5em;
+				border-radius: 999px;
+				white-space: nowrap;
+			}
+			.badge.verified {
+				background: rgba(74, 217, 166, 0.15);
+				color: #4ad9a6;
+			}
+			.badge.unverified {
+				background: rgba(255, 107, 107, 0.15);
+				color: #ff6b6b;
+			}
+			.badge.withdrawn {
+				background: rgba(140, 143, 150, 0.2);
+				color: rgb(var(--gray));
+			}
+			.note {
+				margin-top: 1.5em;
+				font-size: 0.9em;
+				color: rgb(var(--gray));
+			}
+			.note code {
+				font-size: 0.85em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Manifesto for Going Native</h1>
+			<p class="lede">
+				As software developers we are raising the bar of what desktop software should be
+				by building it and helping others learn to build it. Through this work we have
+				come to value:
+			</p>
+
+			<blockquote>
+				<ul class="values">
+					<li>Not only working software, but also <strong>software that respects the machine it runs on</strong></li>
+					<li>Not only shipping on schedule, but also <strong>not cutting corners</strong></li>
+					<li>Not only what's convenient to build, but also <strong>what doesn't ship a browser</strong></li>
+					<li>Not only what users ask for, but also <strong>what respects them</strong></li>
+				</ul>
+				<p class="closing">
+					That is, while there is value in the items on the left, we value the items on
+					the right more.
+				</p>
+			</blockquote>
+
+			<hr />
+
+			<section>
+				<h2>Sign the manifesto</h2>
+				<div class="widget" id="sign-widget">
+					<p class="muted">Loading…</p>
+				</div>
+			</section>
+
+			<section>
+				<h2>Signatures</h2>
+				<div id="signer-list">
+					<p class="muted">Loading…</p>
+				</div>
+			</section>
+
+			<p class="note">
+				Signing is powered by <a href="https://atproto.com" target="_blank" rel="noopener noreferrer">AT Protocol</a>.
+				Your signature is a record in your own repo — <code>at://your-did/dev.going-native.manifesto/manifesto</code> —
+				so you own it and can remove it any time with any Atproto client. The signing date is
+				stamped and digitally signed by this site's backend, so nobody can claim they signed
+				sooner than they did.
+			</p>
+		</main>
+		<Footer />
+
+		<script>
+			import '../scripts/manifesto';
+		</script>
+	</body>
+</html>

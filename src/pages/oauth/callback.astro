@@ -1,0 +1,35 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Signing in — Going Native" description="Completing Atproto sign-in." />
+		<style>
+			main {
+				max-width: 720px;
+				padding: 3em 1em;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>Completing sign-in…</h1>
+		</main>
+
+		<script>
+			import { finalizeCallback } from '../../scripts/oauth';
+
+			finalizeCallback()
+				.then(({ did }) => {
+					window.location.assign(`/manifesto?did=${encodeURIComponent(did)}&just-signed-in=1`);
+				})
+				.catch((err) => {
+					console.error('OAuth callback failed', err);
+					window.location.assign('/manifesto?error=oauth');
+				});
+		</script>
+	</body>
+</html>

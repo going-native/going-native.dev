@@ -8,14 +8,27 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "start": "node ./dist/server/entry.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
+    "@astrojs/node": "^11.1.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
+    "@atcute/atproto": "^4.0.4",
+    "@atcute/client": "^5.1.1",
+    "@atcute/identity-resolver": "^2.0.1",
+    "@atcute/lexicons": "^2.0.3",
+    "@atcute/oauth-browser-client": "^5.0.0",
+    "@atcute/password-session": "^1.0.2",
     "astro": "^7.2.0",
+    "cookie": "^2.0.1",
     "sharp": "^0.35.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
   }
 }
